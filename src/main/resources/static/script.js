@@ -1,3 +1,4 @@
+
 let bilettliste = [];
 
 function registrerbilett() {
@@ -79,28 +80,31 @@ function registrerbilett() {
             telefonnr: telefonnr,
             epost: epost
         };
-        bilettliste.push(bilett);
-        oppdagerliste()
-
+        $.post("/lagre", bilett, function(){
+            hentAlle();
+        });
         document.getElementById("bilettForm").reset();
     }
 }
 
-function oppdagerliste() {
-    let ut = "<table class='bilettliste-table'><tr>" +
-        "<th>Film</th><th>Antall</th><th>Fornavn</th><th>Etternavn</th><th>Telefonnr</th><th>Epost</th> " +
-        "</tr>";
+function hentAlle() {
+    $.get("/hentAlle", function(billetter) {
+        let ut = "<table class='bilettliste-table'><tr>" +
+            "<th>Film</th><th>Antall</th><th>Fornavn</th><th>Etternavn</th><th>Telefonnr</th><th>Epost</th> " +
+            "</tr>";
 
-    for (let p of bilettliste) {
-        ut += "<tr class='bilettliste-row'>";
-        ut += "<td class='bilettliste-cell'>" + p.film + "</td><td class='bilettliste-cell'>" + p.antall + "</td><td class='bilettliste-cell'>" + p.fornavn + "</td><td class='bilettliste-cell'>" + p.etternavn + "</td><td class='bilettliste-cell'>" + p.telefonnr + "</td><td class='bilettliste-cell'>" + p.epost + "</td>";
-        ut += "</tr>";
-    }
-
-    document.getElementById("bilettliste").innerHTML = ut;
+        for (const billet of billetter) {
+            ut += "<tr class='bilettliste-row'>";
+            ut += "<td class='bilettliste-cell'>" + billet.film + "</td><td class='bilettliste-cell'>" + billet.antall + "</td><td class='bilettliste-cell'>" + billet.fornavn + "</td><td class='bilettliste-cell'>" + billet.etternavn + "</td><td class='bilettliste-cell'>" + billet.telefonnr + "</td><td class='bilettliste-cell'>" + billet.epost + "</td>";
+            ut += "</tr>";
+        }
+        document.getElementById("bilettliste").innerHTML = ut;
+    });
 }
 
+
 function slettbiletter(){
-    bilettliste = [];
-    oppdagerliste()
+    $.get( "/slettAlle", function() {
+        hentAlle();
+    });
 }

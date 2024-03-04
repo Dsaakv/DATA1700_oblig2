@@ -11,6 +11,27 @@
 
 <style>
 
+    .title {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 1rem;
+    }
+
+    .ticket-form {
+        border: 1px solid #ddd;
+        padding: 1rem;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+    }
+
+
+
     .bilettliste-table td {
         text-align: center;
     }
@@ -44,8 +65,22 @@
         </ul>
     </div>
 </nav>
-<h2>Alle biletter</h2>
-<form id="bilettliste"></form>
-<button onclick="slettbiletter()">Slett alle bilettene</button>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 text-center">
+            <h2 class="title">Alle billetter</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 ticket-form">
+            <form id="bilettliste"></form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 text-center button-container">
+            <button class="btn btn-danger" onclick="slettbiletter()">Slett alle biletter</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -21,7 +21,10 @@ function hentAlle() {
 
 
 function slettbiletter(){
+    const ok=confirm("Vil du slette alle billetter?")
+    if(ok){
     $.get( "/slettAlle", function() {
         hentAlle();
     });
+    }
 }

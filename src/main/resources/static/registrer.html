@@ -35,73 +35,57 @@
     </div>
 </nav>
 
-<h3 style="font-size: 30px">Bestilling av kinobiletter</h3>
+<div class="container">
 
-<form id="bilettForm">
-    <table>
-        <tr>
-            <td>
-                Velg film:
-            </td>
-            <td>
-                <select id="film">
-                    <option value="" disabled selected>Velg film her</option>
-                    <option>Avengers</option>
-                    <option>Ringenes herre</option>
-                    <option>Star wars</option>
-                </select>
-                <span id="filmfeil" class="feil-melding"></span>
-            </td>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Antall:
-            </td>
-            <td>
-                <input id="antall" type="number" value="" style="width: 35px;" />
-                <span id="feilmeldingantall" class="feil-melding"></span>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 40px; text-align: left;">
-                Fornavn:
-            </td>
-            <td>
-                <input id="fornavn" type="text" value="" />
-                <span id="feilmeldingfornavn" class="feil-melding"></span>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 40px; text-align: left;">
-                Etternavn:
-            </td>
-            <td>
-                <input id="etternavn" type="text" value="" />
-                <span id="feilmeldingetternavn" class="feil-melding"></span>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 40px; text-align: left;">
-                Telefonnr:
-            </td>
-            <td>
-                <input id="telefonnr" type="number" value="" />
-                <span id="feilmeldingtelefonnr" class="feil-melding"></span>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 40px; text-align: left;">
-                Epost:
-            </td>
-            <td>
-                <input id="epost" type="text" value="" />
-                <span id="feilmeldingepost" class="feil-melding"></span>
-            </td>
-        </tr>
-    </table>
-    <button type="button" onclick="registrerbilett()">Registrer bilett</button>
-</form>
+    <h3 class="text-center">Bestilling av kinobiletter</h3>
+
+
+    <form id="bilettForm">
+
+        <div class="form-group">
+            <label for="film">Velg film:</label>
+            <select id="film" class="form-control">
+                <option value="" disabled selected>Velg film her</option>
+                <option>Avengers</option>
+                <option>Ringenes herre</option>
+                <option>Star wars</option>
+            </select>
+            <span id="filmfeil" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="antall">Antall:</label>
+            <input id="antall" type="number" class="form-control" style="width: 100px;">
+            <span id="feilmeldingantall" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="fornavn">Fornavn:</label>
+            <input id="fornavn" type="text" class="form-control">
+            <span id="feilmeldingfornavn" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="etternavn">Etternavn:</label>
+            <input id="etternavn" type="text" class="form-control">
+            <span id="feilmeldingetternavn" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="telefonnr">Telefonnr:</label>
+            <input id="telefonnr" type="number" class="form-control">
+            <span id="feilmeldingtelefonnr" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="epost">Epost:</label>
+            <input id="epost" type="text" class="form-control">
+            <span id="feilmeldingepost" class="text-danger"></span>
+        </div>
+
+        <button type="button" onclick="registrerbilett()" class="btn btn-primary">Registrer bilett</button>
+    </form>
+</div>
 
 </body>
 </html>

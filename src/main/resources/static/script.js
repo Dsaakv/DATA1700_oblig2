@@ -6,7 +6,7 @@ $(function(){
 
 function hentAlle() {
     $.get("/hentAlle", function(billetter) {
-        let ut = "<table class='bilettliste-table'><tr>" +
+        let ut = "<table class=\"bilettliste-table custom-table\"><tr>" +
             "<th>Film</th><th>Antall</th><th>Fornavn</th><th>Etternavn</th><th>Telefonnr</th><th>Epost</th> " +
             "</tr>";
 
